@@ -1,0 +1,577 @@
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/* 2. Remove default margin */
+* {
+  margin: 0;
+  font-family: "Roboto", Tahoma, sans-serif;
+}
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+  margin: 0 5rem;
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  padding: 0.7rem 0;
+}
+
+.logo {
+  letter-spacing: 5px;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #000;
+  font-size: 1.5rem;
+  position: relative;
+}
+
+nav ul li a::after {
+  content: "";
+  background-color: #286ece;
+  height: 1.5px;
+  width: 0;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transition: width 0.25s ease-in;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+.bg-btn {
+  background-color: rgb(0 102 252);
+  color: #fff;
+  border: none;
+  padding: 0.7rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.bg-btn:hover {
+  background-color: rgb(15 92 207);
+}
+
+.consultation {
+  display: flex;
+  justify-content: space-between;
+  margin: 3rem 0;
+  gap: 4rem;
+  /* flex-wrap: wrap; */
+}
+
+.doctors {
+  height: 35rem;
+  width: 45%;
+  flex: 1 1 45%;
+  /* flex-grow: 1;
+flex-shrink: 1;
+flex-basis: 50%; */
+}
+.doc-image {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+}
+.consult {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.7rem;
+  flex: 1 1 50%;
+}
+.care {
+  color: #286ece;
+  background-color: #f2f9ff;
+  font-weight: 600;
+  padding: 7px;
+  border-radius: 5px;
+  font-weight: lighter;
+  letter-spacing: 1.5px;
+  width: max-content;
+}
+.consult h1 {
+  font-size: 4rem;
+  line-height: 1;
+  font-weight: 300;
+}
+.consult p {
+  font-size: 1.75rem;
+  color: hsl(0deg 0% 37.25%);
+}
+.txt-btn {
+  background-color: transparent;
+  border: none;
+  color: #286ece;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+.btns {
+  display: flex;
+  gap: 2rem;
+}
+.number {
+  color: hsl(0deg 0% 37.25%);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.number .years {
+  color: #000;
+  font-size: 3rem;
+  letter-spacing: -5px;
+}
+.number .plus {
+  color: #286ece;
+  vertical-align: super;
+  font-size: 2.2rem;
+  font-weight: bolder;
+}
+.btns .bi {
+  margin-left: 0.5rem;
+}
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+.services > div {
+  display: grid;
+  grid-template-columns: 6fr 1fr;
+  align-items: center;
+  background-color: #fafcfe;
+  padding: 2rem;
+  border-radius: 1rem;
+  grid-column: span 3;
+}
+.services > div p {
+  color: hsl(0deg 0% 37.25%);
+}
+.services > div h2 {
+  margin-bottom: 0.5rem;
+}
+.round-btn {
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  border: 2px solid #2261c6;
+  font-size: 1.5rem;
+  color: #2261c6;
+  cursor: pointer;
+}
+.round-btn:hover {
+  background-color: #2261c6;
+  color: white;
+}
+/* Services end here */
+.dot {
+  display: block;
+  height: 2rem;
+  width: 2rem;
+  background-color: #2261c6;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+.dot::before,
+.dot::after {
+  content: "";
+  height: 2rem;
+  width: 2rem;
+  display: inline-block;
+  background-color: #2261c6;
+  border-radius: 50%;
+}
+.dot::after {
+  margin-left: -2rem;
+}
+.mid-dot {
+  content: "";
+  width: 2rem;
+  height: 2rem;
+  background-color: #e7f0fe;
+  border-radius: 50%;
+  display: inline-block;
+}
+.professional {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  margin: 3rem;
+}
+.prof {
+  height: 40rem;
+  width: 46%;
+  flex: 1 1 46%;
+}
+.prof img {
+  width: 100%;
+  height: 100%;
+}
+.prof-content {
+  row-gap: 1rem;
+  flex: 1 1 46%;
+}
+.experiences {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  background-color: #fafcfe;
+  padding: 2.5rem;
+  width: 100vw;
+  margin-left: -5rem;
+}
+.subtitle {
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+.title {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  grid-column: span 2;
+}
+.comment-block {
+  grid-column: span 2;
+}
+.title p {
+  color: hsl(0deg 0% 37.25%);
+  line-height: 1.2;
+}
+.comment {
+  display: flex;
+  justify-content: space-between;
+}
+.comment p {
+  font-size: 1.7rem;
+  font-weight: bold;
+  line-height: 1.2;
+}
+.icon-btn {
+  align-self: flex-end;
+  margin-bottom: 0.5rem;
+}
+.icon-btn button {
+  border-radius: 50%;
+  height: 2.5rem;
+  width: 2.5rem;
+  border: 2px solid #2261c6;
+  color: #2261c6;
+  /* font-weight: bold; */
+}
+.icon-btn button i {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.avatar {
+  height: 3rem;
+  width: 3rem;
+}
+.avatar img {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+}
+.stars i {
+  color: #fd9f10;
+}
+.person-avatar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 4rem;
+}
+hr {
+  width: 70%;
+  margin-left: 4.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-color: #f4f5fe;
+}
+.our-doctors {
+  margin: 1.5rem 0;
+}
+.our-doctors h2 {
+  line-height: 1.2;
+  font-weight: 400;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+.doctors-profile {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+}
+.doctors-profile > div {
+  grid-column: span 2;
+}
+/* .profile-image { */
+/* height: 25rem;
+width: 25rem; */
+/* } */
+.profile-image img {
+  height: 100%;
+  width: 100%;
+  border-radius: 0.7rem;
+  object-fit: cover;
+}
+.profile-text {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.6rem;
+  margin-top: 1rem;
+}
+.profession {
+  color: #2261c6;
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+}
+.name {
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+.profile-btn button {
+  border: 1px solid #2261c6;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.8rem;
+  border-radius: 0.4rem;
+  color: #2261c6;
+  background-color: #fff;
+  cursor: pointer;
+}
+.book {
+  margin-bottom: 3 rem;
+  background-color: fafcfe;
+  width: 100vw;
+  margin-left: -6rem;
+  text-align: center;
+  padding: 2rem;
+}
+/* .book h1 {
+font-size: 4rem;
+font-weight: 500;
+margin-bottom: 1rem;
+} */
+footer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  margin-bottom: 3rem;
+}
+footer ul {
+  list-style: none;
+}
+footer ul li a {
+  text-decoration: none;
+}
+.footer-links {
+  display: flex;
+  justify-content: space-around;
+  grid-column: span 3;
+}
+.footer-links a {
+  font-size: 1.2rem;
+  color: #221d1d;
+}
+.footer-links ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-left: 0;
+}
+.social-media-icons ul {
+  display: flex;
+  gap: 1rem;
+  padding-left: 0;
+}
+.social-media-icons ul li a {
+  color: rgb(0 102 252);
+}
+.rights {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.reserved {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 45%;
+}
+.footer-logo {
+  flex: 1 1 45%;
+}
+.reserved span {
+  white-space: nowrap;
+}
+.logo-area {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+#toggler {
+  display: none;
+}
+.bars {
+  height: 2px;
+  width: 30px;
+  background-color: red;
+  margin: 6px 0;
+}
+.hamburger {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    margin: 0 2rem;
+  }
+  /* nav {
+  display: none;
+} */
+
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: skyblue;
+    left: 0;
+    top: 60px;
+    width: 100%;
+    align-items: center;
+    display: none;
+    padding: 5px;
+    display: none;
+  }
+
+  header button {
+    display: none;
+  }
+  .consult .doc-title {
+    font-size: 2.5rem;
+  }
+  .consult p {
+    font-size: 1.2rem;
+  }
+  .btns {
+    gap: 1rem;
+  }
+  .bg-btn {
+    font-size: unset;
+    padding: unset;
+    width: 45%;
+  }
+  .txt-btn {
+    display: inline;
+    font-size: unset;
+    width: 45%;
+  }
+  .doctors {
+    height: 30rem;
+  }
+  .services {
+    gap: 1rem;
+  }
+  .services > div p {
+    font-size: 1rem;
+  }
+  .round-btn {
+    height: 2.5rem;
+    width: 2.5rem;
+    font-size: 1rem;
+  }
+  .prof {
+    height: 30rem;
+    width: 100%;
+  }
+  .subtitle {
+    font-size: 2rem;
+  }
+  .hamburger {
+    display: block;
+    position: absolute;
+    right: 0;
+  }
+
+  #toggler:checked ~ nav ul {
+    display: block;
+  }
+}
